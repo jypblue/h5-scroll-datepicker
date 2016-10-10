@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>zepto版本日期选择</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="css/datepicker.css" rel="stylesheet">
+<script type="text/javascript" src="js/zepto.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="datepicker.js"></script>
+</head>
+<body>
+
+    <input type="text" class="textdate" name="">
+    <input type="text" class="textdatetime" name="">
+
+  <script type="text/javascript">
+
+      $(function(){
+        $('.textdate').focus(function(event) {
+          $(this).date({
+
+          });
+        });
+
+        $('.textdatetime').date({
+          theme:'datetime'
+        });
+      })
+
+  </script>
+</body>
+</html>

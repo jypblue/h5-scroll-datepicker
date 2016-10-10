@@ -38,7 +38,7 @@
                 beginday: 1, //日期--日--份结束
                 endday: 31, //日期--日--份结束
                 beginhour: 0,
-                endhour: 12,
+                endhour: 11,
                 beginminute: 0,
                 endminute: 59,
                 curdate: false, //打开日期是否定位到当前日期
@@ -82,12 +82,13 @@
         }
 
         function refreshTime() {
+            debugger;
             HourScroll.refresh();
             MinuteScroll.refresh();
             SecondScroll.refresh();
             if (initH > 12) { //判断当前时间是上午还是下午
                 SecondScroll.scrollTo(0, initD * 40 - 40, 100, true); //显示“下午”
-                initH = initH - 12 - 1;
+                initH = initH - 12;
             }
             HourScroll.scrollTo(0, initH * 40, 100, true);
             MinuteScroll.scrollTo(0, initI * 40, 100, true);
@@ -191,9 +192,9 @@
             init_iScroll_datetime();
             addTimeStyle();
             $("#datescroll_datetime").show();
-            $("#Hourwrapper ul").html(createHOURS_UL());
-            $("#Minutewrapper ul").html(createMINUTE_UL());
-            $("#Secondwrapper ul").html(createSECOND_UL());
+            $("#Hourwrapper").find('ul').html(createHOURS_UL());
+            $("#Minutewrapper").find('ul').html(createMINUTE_UL());
+            $("#Secondwrapper").find('ul').html(createSECOND_UL());
         }
 
         //日期+时间滑动
@@ -238,9 +239,9 @@
 
         function createUL() {
             CreateDateUI();
-            $("#yearwrapper ul").html(createYEAR_UL());
-            $("#monthwrapper ul").html(createMONTH_UL());
-            $("#daywrapper ul").html(createDAY_UL());
+            $("#yearwrapper").find('ul').html(createYEAR_UL());
+            $("#monthwrapper").find('ul').html(createMONTH_UL());
+            $("#daywrapper").find('ul').html(createDAY_UL());
         }
 
         function CreateDateUI() {
@@ -350,4 +351,4 @@
             return str + "<li>&nbsp;</li>";;
         }
     }
-})(jQuery);
+})(typeof(Zepto) != 'undefined' ? Zepto : jQuery);
