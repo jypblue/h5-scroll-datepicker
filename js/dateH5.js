@@ -16,7 +16,7 @@
         var indexH = 1,
             indexI = 1,
             indexS = 0;
-        var initY = parseInt((nowdate.getYear() + "").substr(1, 2));
+        var initY = parseInt(nowdate.getFullYear()) - 1900;
         var initM = parseInt(nowdate.getMonth() + "") + 1;
         var initD = parseInt(nowdate.getDate() + "");
         var initH = parseInt(nowdate.getHours());
@@ -37,11 +37,11 @@
                 endmonth: 12, //日期--月--份结束
                 beginday: 1, //日期--日--份结束
                 endday: 31, //日期--日--份结束
-                beginhour: 1,
+                beginhour: 0,
                 endhour: 12,
                 beginminute: 0,
                 endminute: 59,
-                curdate: true, //打开日期是否定位到当前日期
+                curdate: false, //打开日期是否定位到当前日期
                 theme: "date", //控件样式（1：日期，2：日期+时间）
                 mode: null, //操作模式（滑动模式）
                 event: "click", //打开日期插件默认方式为点击后后弹出日期
@@ -106,7 +106,7 @@
             } else if (that.val() === "") {
                 return false;
             }
-            initY = parseInt(that.val().substr(2, 2));
+            initY = parseInt(that.val().substr(0, 4)) - 1900;
             initM = parseInt(that.val().substr(5, 2));
             initD = parseInt(that.val().substr(8, 2));
         }
